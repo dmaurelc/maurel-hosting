@@ -1,0 +1,325 @@
+---
+import IconCheck from "../components/iconos/IconCheck.astro";
+---
+
+<section class="bg-vulcan-900 border-y border-white/5">
+  <div
+    x-data="{annual: false}"
+    class="relative items-center w-full px-4 py-32 mx-auto md:px-12 lg:px-16 max-w-7xl lg:py-36"
+  >
+    <div class="max-w-3xl mx-auto text-center lg:max-w-none">
+      <div class="max-w-xl lg:text-center mx-auto">
+        <span
+          class="text-sm text-transparent uppercase bg-gradient-to-r from-emerald-500 from-0% to-100% to-emerald-900 bg-clip-text"
+          >Precios
+        </span>
+        <h2 class="mt-8 text-3xl font-normal tracking-tight text-white">
+          Planes de Hosting Web
+        </h2>
+        <p class="mt-4 text-base text-gray-300">
+          Contamos con precios simples y transparentes para que puedas elegir el
+          plan que mejor se adapte a tus necesidades.
+        </p>
+      </div>
+      <div
+        class="w-full bg-vulcan-900 border border-white/5 overflow-hidden inline-flex p-0.5 rounded-lg mt-8 z-0 lg:ml-auto max-w-xs"
+      >
+        <button
+          class="block w-full px-8 py-2 text-sm font-medium text-white transition border border-transparent rounded-md"
+          @click="annual = false"
+          :class="annual == false ? 'bg-emerald-950 !text-emerald-400 border' : ''"
+          type="button">Mensual</button
+        >
+        <button
+          class="block w-full px-8 py-2 text-sm font-medium text-white transition border border-transparent rounded-md"
+          @click="annual = true"
+          :class="annual == true ? 'bg-emerald-950 !text-emerald-400 border' : ''"
+          type="button">Anual</button
+        >
+      </div>
+    </div>
+
+    <div
+      class="relative my-12 space-y-4 sm:mt-16 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-4 max-w-7xl lg:mx-auto xl:grid-cols-4"
+    >
+      <div
+        class="p-[0.060rem] rounded-3xl shadow-2xl shadow-slate-950 bg-gradient-to-b from-slate-800 via-slate-500/5"
+      >
+        <div
+          class="grid items-center justify-center w-full grid-cols-1 p-6 bg-vulcan-900 lg:p-8 rounded-t-3xl"
+        >
+          <div>
+            <h2 class="text-lg text-emerald-400">Starter</h2>
+            <p class="mt-4 text-sm text-gray-300">
+              Ideal para Landing Pages o Sitios Express
+            </p>
+          </div>
+          <div class="flex-col mt-8">
+            <p class="text-5xl font-light tracking-tight text-white">
+              $<span x-text="annual ? '30.000' : '3.000'">30.000</span>
+            </p>
+            <p class="text-sm text-gray-300">
+              por mes
+              <span x-show="annual" style="display: none">(pago anual)</span>
+            </p>
+          </div>
+        </div>
+        <div class="px-6 pb-8 bg-vulcan-900 rounded-b-3xl">
+          <ul
+            role="list"
+            class="flex flex-col order-last text-xs text-gray-400 gap-y-3"
+          >
+            <li class="flex items-center">
+              <IconCheck />
+              <span class="ml-4">Almacenamiento (4GB)</span>
+            </li>
+            <li class="flex items-center">
+              <IconCheck />
+              <span class="ml-4">Transferencia mensual (40 GB)</span>
+            </li>
+            <li class="flex items-center">
+              <IconCheck />
+              <span class="ml-4">2 cuentas email </span>
+            </li>
+            <li class="flex items-center">
+              <IconCheck />
+              <span class="ml-4">Bases de datos (2) </span>
+            </li>
+            <li class="flex items-center">
+              <IconCheck />
+              <span class="ml-4">Respaldos diarios </span>
+            </li>
+            <li class="flex items-center">
+              <IconCheck />
+              <span class="ml-4">Antimalware Imunify360</span>
+            </li>
+            <li class="flex items-center">
+              <IconCheck />
+              <span class="ml-4">SSL Gratis</span>
+            </li>
+          </ul>
+
+          <div class="mt-8">
+            <a
+              class="flex items-center justify-center h-10 px-4 py-2 text-sm text-white transition-all border rounded-lg bg-vulcan-900 border-emerald-700 hover:bg-emerald-950 hover:text-white"
+              aria-label="Big fish tier"
+              href="https://maurel.cl/cart.php?a=add&pid=7"
+              title="Plan Starter"
+              aria-label="Plan Starter">Contratar</a
+            >
+          </div>
+        </div>
+      </div>
+      <div
+        class="p-[0.060rem] rounded-3xl shadow-2xl shadow-vulcan-950 bg-gradient-to-b from-slate-800 via-indigo-500/5"
+      >
+        <div
+          class="grid items-center justify-center w-full grid-cols-1 p-6 bg-vulcan-900 lg:p-8 rounded-t-3xl"
+        >
+          <div>
+            <h2 class="text-lg text-emerald-400">Básico</h2>
+            <p class="mt-4 text-sm text-gray-300">
+              Para sitios web informativos sobre servicios
+            </p>
+          </div>
+          <div class="flex-col mt-8">
+            <p class="text-5xl font-light tracking-tight text-white">
+              $<span x-text="annual ? '40.000' : '4.000'">40.000</span>
+            </p>
+            <p class="text-sm text-gray-300">
+              por mes
+              <span x-show="annual" style="display: none">(pago anual)</span>
+            </p>
+          </div>
+        </div>
+        <div class="px-6 pb-8 bg-vulcan-900 rounded-b-3xl">
+          <ul
+            role="list"
+            class="flex flex-col order-last text-xs text-gray-400 gap-y-3"
+          >
+            <li class="flex items-center">
+              <IconCheck />
+              <span class="ml-4">Almacenamiento (6GB)</span>
+            </li>
+            <li class="flex items-center">
+              <IconCheck />
+              <span class="ml-4">Transferencia mensual (60 GB)</span>
+            </li>
+            <li class="flex items-center">
+              <IconCheck />
+              <span class="ml-4">Cuentas email ilimitadas</span>
+            </li>
+            <li class="flex items-center">
+              <IconCheck />
+              <span class="ml-4">Bases de datos (10) </span>
+            </li>
+            <li class="flex items-center">
+              <IconCheck />
+              <span class="ml-4">Respaldos diarios </span>
+            </li>
+            <li class="flex items-center">
+              <IconCheck />
+              <span class="ml-4">Antimalware Imunify360</span>
+            </li>
+            <li class="flex items-center">
+              <IconCheck />
+              <span class="ml-4">SSL Gratis</span>
+            </li>
+          </ul>
+
+          <div class="mt-8">
+            <a
+              class="flex items-center justify-center h-10 px-4 py-2 text-sm text-white transition-all border rounded-lg bg-vulcan-900 border-emerald-700 hover:bg-emerald-950 hover:text-white"
+              aria-label="Big fish tier"
+              href="https://maurel.cl/cart.php?a=add&pid=8"
+              title="Plan Básico"
+              aria-label="Plan Básico">Contratar</a
+            >
+          </div>
+        </div>
+      </div>
+      <div
+        class="order-first p-[0.060rem] rounded-3xl shadow-2xl shadow-vulcan-950 bg-gradient-to-b from-emerald-500 via-emerald-500/5 lg:order-none"
+      >
+        <div
+          class="grid items-center justify-center w-full grid-cols-1 p-6 bg-vulcan-900 lg:p-8 rounded-t-3xl"
+        >
+          <div>
+            <h2 class="text-lg text-emerald-400">
+              Pyme
+              <span
+                class="inline-flex items-center ml-3 px-2.5 py-0.5 rounded-xl text-xs font-medium bg-emerald-950 text-emerald-400"
+              >
+                Popular
+              </span>
+            </h2>
+            <p class="mt-4 text-sm text-gray-300">
+              Páginas web corporativas con diferentes secciones
+            </p>
+          </div>
+          <div class="flex-col mt-8">
+            <p class="text-5xl font-light tracking-tight text-white">
+              $<span x-text="annual ? '60.000' : '6.000'">60.000</span>
+            </p>
+            <p class="text-sm text-gray-300">
+              por mes
+              <span x-show="annual" style="display: none">(pago anual)</span>
+            </p>
+          </div>
+        </div>
+        <div class="px-6 pb-8 bg-vulcan-900 rounded-b-3xl">
+          <ul
+            role="list"
+            class="flex flex-col order-last text-xs text-white gap-y-3"
+          >
+            <li class="flex items-center">
+              <IconCheck />
+              <span class="ml-4">Almacenamiento (10GB)</span>
+            </li>
+            <li class="flex items-center">
+              <IconCheck />
+              <span class="ml-4">Transferencia mensual (100 GB)</span>
+            </li>
+            <li class="flex items-center">
+              <IconCheck />
+              <span class="ml-4">Cuentas email ilimitadas</span>
+            </li>
+            <li class="flex items-center">
+              <IconCheck />
+              <span class="ml-4">Bases de datos ilimitadas</span>
+            </li>
+            <li class="flex items-center">
+              <IconCheck />
+              <span class="ml-4">Respaldos diarios </span>
+            </li>
+            <li class="flex items-center">
+              <IconCheck />
+              <span class="ml-4">Antimalware Imunify360</span>
+            </li>
+            <li class="flex items-center">
+              <IconCheck />
+              <span class="ml-4">SSL Gratis</span>
+            </li>
+          </ul>
+          <div class="mt-8">
+            <a
+              class="flex items-center justify-center h-10 px-4 py-2 text-sm transition-all rounded-lg bg-emerald-950 hover:bg-emerald-400 text-emerald-400 hover:text-emerald-950"
+              aria-label="Indie hacker tier"
+              href="https://maurel.cl/cart.php?a=add&pid=10"
+              title="Plan Pyme"
+              aria-label="Plan Pyme">Contratar</a
+            >
+          </div>
+        </div>
+      </div>
+      <div
+        class="p-[0.060rem] rounded-3xl shadow-2xl shadow-vulcan-950 bg-gradient-to-b from-slate-800 via-indigo-500/5"
+      >
+        <div
+          class="grid items-center justify-center w-full grid-cols-1 p-6 bg-vulcan-900 lg:p-8 rounded-t-3xl"
+        >
+          <div>
+            <h2 class="text-lg text-emerald-400">Profesional</h2>
+            <p class="mt-4 text-sm text-gray-300">
+              Especial para tiendas online y portales web
+            </p>
+          </div>
+          <div class="flex-col mt-8">
+            <p class="text-5xl font-light tracking-tight text-white">
+              $<span x-text="annual ? '90.000' : '9.000'">90.000</span>
+            </p>
+            <p class="text-sm text-gray-300">
+              por mes
+              <span x-show="annual" style="display: none">(pago anual)</span>
+            </p>
+          </div>
+        </div>
+        <div class="px-6 pb-8 bg-vulcan-900 rounded-b-3xl">
+          <ul
+            role="list"
+            class="flex flex-col order-last text-xs text-gray-400 gap-y-3"
+          >
+            <li class="flex items-center">
+              <IconCheck />
+
+              <span class="ml-4">Almacenamiento (20GB)</span>
+            </li>
+            <li class="flex items-center">
+              <IconCheck />
+              <span class="ml-4">Transferencia mensual (200 GB)</span>
+            </li>
+            <li class="flex items-center">
+              <IconCheck />
+              <span class="ml-4">Cuentas email ilimitadas</span>
+            </li>
+            <li class="flex items-center">
+              <IconCheck />
+              <span class="ml-4">Bases de datos ilimitadas</span>
+            </li>
+            <li class="flex items-center">
+              <IconCheck />
+              <span class="ml-4">Respaldos diarios </span>
+            </li>
+            <li class="flex items-center">
+              <IconCheck />
+              <span class="ml-4">Antimalware Imunify360</span>
+            </li>
+            <li class="flex items-center">
+              <IconCheck />
+              <span class="ml-4">SSL Gratis</span>
+            </li>
+          </ul>
+          <div class="mt-8">
+            <a
+              class="flex items-center justify-center h-10 px-4 py-2 text-sm text-white transition-all border rounded-lg bg-vulcan-900 border-emerald-700 hover:bg-emerald-950 hover:text-white"
+              aria-label="Big fish tier"
+              href="https://maurel.cl/cart.php?a=add&pid=9"
+              title="Plan Profesional"
+              aria-label="Plan Profesional">Contratar</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

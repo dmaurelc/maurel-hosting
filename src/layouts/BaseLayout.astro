@@ -1,0 +1,77 @@
+---
+import "../styles/global.css";
+import Navigation from "../components/global/Navigation.astro";
+import Footer from "../components/global/Footer.astro";
+import Favicons from "@/components/seo/Favicons.astro";
+
+let { url, title, description, image } = Astro.props;
+url || (url = import.meta.env.FRONTEND_URL);
+title || (title = "▷ Maurel Hosting - Hosting Web Profesional");
+description ||
+  (description =
+    "Seguridad, estabilidad, rapidez y confianza son algunas de las características de nuestro servicio de alojamiento web.");
+image || image === "/assets/img-social.webp";
+---
+
+<!doctype html>
+<html
+  lang="es"
+  class="scroll-smooth selection:bg-indigo-500 selection:text-white scrollbar-gutter-stable"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <!-- Primary Meta Tags -->
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={url} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={image} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={url} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={image} />
+    <meta property="twitter:creator" content="@dmaurelc" />
+    <meta property="twitter:url" content={url} />
+    <meta property="twitter:domain" content={title} />
+
+    <link rel="canonical" href={url} />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <Favicons />
+    <!---
+    Inter Font
+    --->
+    <link rel="preconnect" href="https://rsms.me/" />
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+    <!---
+    Alpine.js
+    --->
+    <!---- Tipyjs integrations: https://atomiks.github.io/tippyjs/-->
+    <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/dist/tippy.css" />
+    <link rel="stylesheet" href="https://unpkg.com/tippy.js/themes/light.css" />
+    <script
+      src="https://cdn.jsdeli  r.net/npm/@ryangjchandler/alpine-tooltip@1.x.x/dist/cdn.min.js"
+      defer></script>
+    <!---- Alpine integrations -->
+    <script defer src="https://unpkg.com/@alpinejs/focus@3.10.3/dist/cdn.min.js"
+    ></script>
+    <script defer src="https://unpkg.com/alpinejs@3.10.5/dist/cdn.min.js"
+    ></script>
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+
+  <body class="bg-vulcan-900">
+    <Navigation />
+    <slot />
+    <Footer />
+  </body>
+</html>

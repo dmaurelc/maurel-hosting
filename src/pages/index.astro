@@ -1,0 +1,23 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Hero from "../components/HeroOne.astro";
+import Clientes from "../components/LogoCloudTwo.astro";
+import Destacados from "../components/FeatureFive.astro";
+import Pricing from "../components/PricingFive.astro";
+import Faq from "../components/FaqTwo.astro";
+import CtaFooter from "../components/CtaFour.astro";
+---
+
+<BaseLayout
+  url="https://maurel.cl"
+  title="▷ Maurel Hosting - Hosting Web Profesional"
+  description="Seguridad, estabilidad, rapidez y confianza son algunas de las características de nuestro servicio de alojamiento web."
+  image="/assets/img-social.webp"
+>
+  <Hero />
+  <Clientes />
+  <Destacados />
+  <Pricing />
+  <Faq />
+  <CtaFooter />
+</BaseLayout>

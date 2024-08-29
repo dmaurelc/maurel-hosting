@@ -1,0 +1,449 @@
+---
+import Verticalgrid from "../components/Verticalgrid.astro";
+
+const faqs = [
+  {
+    id: 1,
+    pregunta: "¿Qué es un servicio de hosting web?",
+    respuesta:
+      "El hosting web es un servicio que permite alojar tu sitio web en un servidor para que esté disponible en internet. Es como alquilar un espacio en un servidor donde se almacenan todos los archivos y datos de tu página web.",
+  },
+  {
+    id: 2,
+    pregunta: "¿Cuál es la diferencia entre un dominio y el hosting?",
+    respuesta:
+      "El dominio es la dirección de tu sitio web (ej. www.tusitio.com), mientras que el hosting es el lugar donde se almacenan los archivos y datos de tu sitio. El dominio dirige a los visitantes al servidor donde está alojado tu sitio web.",
+  },
+  {
+    id: 3,
+    pregunta: "¿Puedo cambiar mi plan de hosting más adelante?",
+    respuesta:
+      "Sí, puedes actualizar o cambiar tu plan de hosting en cualquier momento. Si tu sitio crece o necesitas más recursos, puedes migrar fácilmente a un plan superior.",
+  },
+  {
+    id: 4,
+    pregunta: "¿Cómo se realiza la migración de mi sitio web a su hosting?",
+    respuesta:
+      "Ofrecemos un servicio de migración gratuito que se encarga de trasladar tu sitio web desde tu proveedor actual a nuestros servidores sin interrupciones ni pérdida de datos.",
+  },
+  {
+    id: 5,
+    pregunta:
+      "¿Cuál es la garantía de tiempo de actividad (uptime) que ofrecen?",
+    respuesta:
+      "Garantizamos un tiempo de actividad del 99.9%, lo que significa que tu sitio estará disponible casi todo el tiempo, con muy pocas interrupciones programadas para mantenimiento.",
+  },
+  {
+    id: 6,
+    pregunta: "¿Qué sucede si tengo problemas con mi hosting?",
+    respuesta:
+      "Contamos con un equipo de soporte técnico disponible 24/7 que te ayudará a resolver cualquier problema que puedas tener con tu servicio de hosting.",
+  },
+  {
+    id: 7,
+    pregunta: "¿Qué medidas de seguridad implementan en los servidores?",
+    respuesta:
+      "Nuestros servidores están protegidos con firewalls avanzados, detección y prevención de intrusiones, certificados SSL, y copias de seguridad automáticas para garantizar la seguridad de tus datos.",
+  },
+  {
+    id: 8,
+    pregunta: "¿Ofrecen copias de seguridad automáticas?",
+    respuesta:
+      "Sí, ofrecemos copias de seguridad automáticas diarias/semana/mes para que puedas restaurar tu sitio en caso de cualquier problema o pérdida de datos.",
+  },
+  {
+    id: 9,
+    pregunta:
+      "¿Puedo instalar un CMS como WordPress en su servicio de hosting?",
+    respuesta:
+      "Sí, nuestros planes de hosting son compatibles con CMS populares como WordPress, Joomla, y Drupal, y puedes instalarlos fácilmente desde nuestro panel de control con un solo clic.",
+  },
+];
+---
+
+<section class="relative">
+  <Verticalgrid />
+  <div class="relative px-8 py-12 mx-auto max-w-7xl md:px-12 lg:px-32 lg:pt-24">
+    <div class="max-w-xl mx-auto text-center">
+      <p
+        class="text-sm text-transparent uppercase bg-gradient-to-r from-emerald-500 to-emerald-900 bg-clip-text"
+      >
+        ¿Tienes dudas?
+      </p>
+      <h2 class="mt-8 text-3xl font-normal tracking-tight text-white">
+        Preguntas Frecuentes
+      </h2>
+      <p class="mx-auto mt-4 text-base text-gray-400">
+        Si tienes alguna duda sobre nuestro servicio de hosting, puedes
+        enviarnos un correo a contacto@maurel.cl
+      </p>
+    </div>
+    <div class="relative mt-10">
+      <div
+        class="relative mx-auto border rounded-3xl border-white/5 bg-vulcan-900"
+        x-data="{selected:null}"
+      >
+        <ul class="list-none" role="list" @click="open = !open">
+         {
+          faqs.map((faq) => (
+          <li class="relative border-b border-white/5">
+            <button
+              type="button"
+              class="w-full px-8 py-6 text-left"
+              @click=`selected !== ${faq.id} ? selected = ${faq.id} : selected = null`
+            >
+              <div class="flex items-center justify-between text-white group">
+                <p
+                  class="text-base duration-200 text-gray-300 group-hover:text-emerald-400"
+                >
+                  {faq.pregunta}
+                </p>
+                <svg
+                  :class="{'rotate-180': open, 'rotate-0': !open}"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="inline w-5 h-5 ml-4 transition-transform duration-200 transform rotate-180 group-hover:text-emerald-400"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z"
+                    clip-rule="evenodd"></path>
+                </svg>
+              </div>
+            </button>
+            <div
+              class="relative overflow-hidden transition-all duration-700 max-h-0"
+              style=""
+              x-ref=`container${faq.id}`
+              x-bind:style=`selected == '${faq.id}' ? 'max-height: ' + $refs.container${faq.id}.scrollHeight + 'px' : ''`
+            >
+              <div class="px-8 pt-4 pb-20 text-sm text-gray-400">
+                {faq.respuesta}
+              </div>
+            </div>
+          </li>
+          ))
+        }
+
+          <!-- <li class="relative border-b border-white/5">
+            <button
+              type="button"
+              class="w-full px-8 py-6 text-left"
+              @click="selected !== 2 ? selected = 2 : selected = null"
+            >
+              <div class="flex items-center justify-between text-white group">
+                <p
+                  class="text-base duration-200 text-gray-300 group-hover:text-emerald-400"
+                >
+                  ¿Cuál es la diferencia entre un dominio y el hosting?
+                </p>
+                <svg
+                  :class="{'rotate-180': open, 'rotate-0': !open}"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="inline w-5 h-5 ml-4 transition-transform duration-200 transform rotate-180 group-hover:text-emerald-400"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z"
+                    clip-rule="evenodd"></path>
+                </svg>
+              </div>
+            </button>
+            <div
+              class="relative overflow-hidden transition-all duration-700 max-h-0"
+              style=""
+              x-ref="container2"
+              x-bind:style="selected == 2 ? 'max-height: ' + $refs.container2.scrollHeight + 'px' : ''"
+            >
+              <div class="px-8 pt-4 pb-20 text-sm text-gray-400">
+                El dominio es la dirección de tu sitio web (ej.
+                www.tusitio.com), mientras que el hosting es el lugar donde se
+                almacenan los archivos y datos de tu sitio. El dominio dirige a
+                los visitantes al servidor donde está alojado tu sitio web.
+              </div>
+            </div>
+          </li>
+          <li class="relative border-b border-white/5">
+            <button
+              type="button"
+              class="w-full px-8 py-6 text-left"
+              @click="selected !== 3 ? selected = 3 : selected = null"
+            >
+              <div class="flex items-center justify-between text-white group">
+                <p
+                  class="text-base duration-200 text-gray-300 group-hover:text-emerald-400"
+                >
+                  ¿Puedo cambiar mi plan de hosting más adelante?
+                </p>
+                <svg
+                  :class="{'rotate-180': open, 'rotate-0': !open}"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="inline w-5 h-5 ml-4 transition-transform duration-200 transform rotate-180 group-hover:text-emerald-400"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z"
+                    clip-rule="evenodd"></path>
+                </svg>
+              </div>
+            </button>
+            <div
+              class="relative overflow-hidden transition-all duration-700 max-h-0"
+              style=""
+              x-ref="container2"
+              x-bind:style="selected == 3 ? 'max-height: ' + $refs.container2.scrollHeight + 'px' : ''"
+            >
+              <div class="px-8 pt-4 pb-20 text-sm text-gray-400">
+                Sí, puedes actualizar o cambiar tu plan de hosting en cualquier
+                momento. Si tu sitio crece o necesitas más recursos, puedes
+                migrar fácilmente a un plan superior.
+              </div>
+            </div>
+          </li>
+          <li class="relative border-b border-white/5">
+            <button
+              type="button"
+              class="w-full px-8 py-6 text-left"
+              @click="selected !== 4 ? selected = 4 : selected = null"
+            >
+              <div class="flex items-center justify-between text-white group">
+                <p
+                  class="text-base duration-200 text-gray-300 group-hover:text-emerald-400"
+                >
+                  ¿Cómo se realiza la migración de mi sitio web a su hosting?
+                </p>
+                <svg
+                  :class="{'rotate-180': open, 'rotate-0': !open}"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="inline w-5 h-5 ml-4 transition-transform duration-200 transform rotate-180 group-hover:text-emerald-400"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z"
+                    clip-rule="evenodd"></path>
+                </svg>
+              </div>
+            </button>
+            <div
+              class="relative overflow-hidden transition-all duration-700 max-h-0"
+              style=""
+              x-ref="container2"
+              x-bind:style="selected == 4 ? 'max-height: ' + $refs.container2.scrollHeight + 'px' : ''"
+            >
+              <div class="px-8 pt-4 pb-20 text-sm text-gray-400">
+                Ofrecemos un servicio de migración gratuito que se encarga de
+                trasladar tu sitio web desde tu proveedor actual a nuestros
+                servidores sin interrupciones ni pérdida de datos.
+              </div>
+            </div>
+          </li>
+          <li class="relative border-b border-white/5">
+            <button
+              type="button"
+              class="w-full px-8 py-6 text-left"
+              @click="selected !== 5 ? selected = 5 : selected = null"
+            >
+              <div class="flex items-center justify-between text-white group">
+                <p
+                  class="text-base duration-200 text-gray-300 group-hover:text-emerald-400"
+                >
+                  ¿Cuál es la garantía de tiempo de actividad (uptime) que
+                  ofrecen?
+                </p>
+                <svg
+                  :class="{'rotate-180': open, 'rotate-0': !open}"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="inline w-5 h-5 ml-4 transition-transform duration-200 transform rotate-180 group-hover:text-emerald-400"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z"
+                    clip-rule="evenodd"></path>
+                </svg>
+              </div>
+            </button>
+            <div
+              class="relative overflow-hidden transition-all duration-700 max-h-0"
+              style=""
+              x-ref="container2"
+              x-bind:style="selected == 5 ? 'max-height: ' + $refs.container2.scrollHeight + 'px' : ''"
+            >
+              <div class="px-8 pt-4 pb-20 text-sm text-gray-400">
+                Garantizamos un tiempo de actividad del 99.9%, lo que significa
+                que tu sitio estará disponible casi todo el tiempo, con muy
+                pocas interrupciones programadas para mantenimiento.
+              </div>
+            </div>
+          </li>
+          <li class="relative border-b border-white/5">
+            <button
+              type="button"
+              class="w-full px-8 py-6 text-left"
+              @click="selected !== 6 ? selected = 6 : selected = null"
+            >
+              <div class="flex items-center justify-between text-white group">
+                <p
+                  class="text-base duration-200 text-gray-300 group-hover:text-emerald-400"
+                >
+                  ¿Qué sucede si tengo problemas con mi hosting?
+                </p>
+                <svg
+                  :class="{'rotate-180': open, 'rotate-0': !open}"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="inline w-5 h-5 ml-4 transition-transform duration-200 transform rotate-180 group-hover:text-emerald-400"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z"
+                    clip-rule="evenodd"></path>
+                </svg>
+              </div>
+            </button>
+            <div
+              class="relative overflow-hidden transition-all duration-700 max-h-0"
+              style=""
+              x-ref="container2"
+              x-bind:style="selected == 6 ? 'max-height: ' + $refs.container2.scrollHeight + 'px' : ''"
+            >
+              <div class="px-8 pt-4 pb-20 text-sm text-gray-400">
+                Contamos con un equipo de soporte técnico disponible 24/7 que te
+                ayudará a resolver cualquier problema que puedas tener con tu
+                servicio de hosting.
+              </div>
+            </div>
+          </li>
+          <li class="relative border-b border-white/5">
+            <button
+              type="button"
+              class="w-full px-8 py-6 text-left"
+              @click="selected !== 7 ? selected = 7 : selected = null"
+            >
+              <div class="flex items-center justify-between text-white group">
+                <p
+                  class="text-base duration-200 text-gray-300 group-hover:text-emerald-400"
+                >
+                  ¿Qué medidas de seguridad implementan en los servidores?
+                </p>
+                <svg
+                  :class="{'rotate-180': open, 'rotate-0': !open}"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="inline w-5 h-5 ml-4 transition-transform duration-200 transform rotate-180 group-hover:text-emerald-400"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z"
+                    clip-rule="evenodd"></path>
+                </svg>
+              </div>
+            </button>
+            <div
+              class="relative overflow-hidden transition-all duration-700 max-h-0"
+              style=""
+              x-ref="container3"
+              x-bind:style="selected == 7 ? 'max-height: ' + $refs.container2.scrollHeight + 'px' : ''"
+            >
+              <div class="px-8 pt-4 pb-20 text-sm text-gray-400">
+                Nuestros servidores están protegidos con firewalls avanzados,
+                detección y prevención de intrusiones, certificados SSL, y
+                copias de seguridad automáticas para garantizar la seguridad de
+                tus datos.
+              </div>
+            </div>
+          </li>
+          <li class="relative border-b border-white/5">
+            <button
+              type="button"
+              class="w-full px-8 py-6 text-left"
+              @click="selected !== 8 ? selected = 8 : selected = null"
+            >
+              <div class="flex items-center justify-between text-white group">
+                <p
+                  class="text-base duration-200 text-gray-300 group-hover:text-emerald-400"
+                >
+                  ¿Ofrecen copias de seguridad automáticas?
+                </p>
+                <svg
+                  :class="{'rotate-180': open, 'rotate-0': !open}"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="inline w-5 h-5 ml-4 transition-transform duration-200 transform rotate-180 group-hover:text-emerald-400"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z"
+                    clip-rule="evenodd"></path>
+                </svg>
+              </div>
+            </button>
+            <div
+              class="relative overflow-hidden transition-all duration-700 max-h-0"
+              style=""
+              x-ref="container3"
+              x-bind:style="selected == 8 ? 'max-height: ' + $refs.container3.scrollHeight + 'px' : ''"
+            >
+              <div class="px-8 pt-4 pb-20 text-sm text-gray-400">
+                Sí, ofrecemos copias de seguridad automáticas diarias/semana/mes
+                para que puedas restaurar tu sitio en caso de cualquier problema
+                o pérdida de datos.
+              </div>
+            </div>
+          </li>
+          <li class="relative">
+            <button
+              type="button"
+              class="w-full px-8 py-6 text-left"
+              @click="selected !== 9 ? selected = 9 : selected = null"
+            >
+              <div class="flex items-center justify-between text-white group">
+                <p
+                  class="text-base duration-200 text-gray-300 group-hover:text-emerald-400"
+                >
+                  ¿Puedo instalar un CMS como WordPress en su servicio de
+                  hosting?
+                </p>
+                <svg
+                  :class="{'rotate-180': open, 'rotate-0': !open}"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="inline w-5 h-5 ml-4 transition-transform duration-200 transform rotate-180 group-hover:text-emerald-400"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z"
+                    clip-rule="evenodd"></path>
+                </svg>
+              </div>
+            </button>
+            <div
+              class="relative overflow-hidden transition-all duration-700 max-h-0"
+              style=""
+              x-ref="container3"
+              x-bind:style="selected == 9 ? 'max-height: ' + $refs.container3.scrollHeight + 'px' : ''"
+            >
+              <div class="px-8 pt-4 pb-20 text-sm text-gray-400">
+                Sí, nuestros planes de hosting son compatibles con CMS populares
+                como WordPress, Joomla, y Drupal, y puedes instalarlos
+                fácilmente desde nuestro panel de control con un solo clic.
+              </div>
+            </div>
+          </li> -->
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

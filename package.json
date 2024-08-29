@@ -1,0 +1,27 @@
+{
+  "name": "@lexington/navy",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "devDependencies": {
+    "@astrojs/tailwind": "^5.1.0",
+    "@tailwindcss/typography": "^0.5.10",
+    "@types/alpinejs": "^3.13.5",
+    "astro": "^4.14.3",
+    "tailwind-scrollbar-utilities": "^0.2.0"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^3.1.4",
+    "@astrojs/rss": "^4.0.1",
+    "@astrojs/sitemap": "^3.0.4",
+    "@tailwindcss/forms": "^0.5.7",
+    "tailwind-scrollbar-hide": "^1.1.7",
+    "undefined": "^0.1.0"
+  }
+}

@@ -1,0 +1,54 @@
+---
+import Blurgradientleft from "../assets/Blurgradientleft.astro";
+import Verticalgrid from "../assets/Verticalgrid.astro";
+---
+
+<section class="relative">
+  <Verticalgrid />
+  <section>
+    <Blurgradientleft />
+    <div
+      class="relative items-center w-full px-5 py-24 mx-auto md:px-12 lg:px-16 max-w-7xl lg:pb-32 lg:pt-56"
+    >
+      <div class="max-w-5xl mx-auto">
+        <p
+          class="text-sm text-transparent uppercase bg-gradient-to-r from-emerald-500 from-0% to-40% to-emerald-900 bg-clip-text"
+        >
+          HOSTING PARA EMPRESAS
+        </p>
+        <h1
+          class="mt-8 text-4xl font-normal tracking-tighter text-white sm:text-5xl"
+        >
+          Hosting Web Profesional
+        </h1>
+        <p class="max-w-2xl mt-4 text-gray-300">
+          La mejor opción para el desarrollo de tu negocio en Internet.
+          Ofrecemos servicios de alojamiento web profesionales, con un enfoque
+          en la seguridad, la estabilidad y la rapidez.
+        </p>
+        <div class="flex flex-wrap items-center gap-2 mt-10">
+          <a
+            href="/planes"
+            class="flex items-center justify-center h-10 px-4 py-2 text-sm transition-all rounded-lg text-emerald-400 hover:text-emerald-950 bg-emerald-950 hover:bg-emerald-400"
+            >Ver Planes</a
+          >
+          <a
+            href="/mi-cuenta"
+            class="flex items-center justify-center h-10 px-4 py-2 text-sm text-white transition-all border rounded-lg hover:text-emerald-600 border-emerald-700"
+            >Ingresar
+          </a>
+        </div>
+      </div>
+      <div
+        class="relative items-center w-full mx-auto mt-12 max-w-7xl lg:p-4 lg:rounded-5xl lg:border border-emerald-800"
+        style=""
+      >
+        <img
+          class="object-cover w-full border shadow-2xl rounded-xl border-white/5 lg:rounded-3xl shadow-emerald-950"
+          src="/assets/panel-hosting.webp"
+          alt=""
+        />
+      </div>
+    </div>
+  </section>
+</section>

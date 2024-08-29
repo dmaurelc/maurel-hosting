@@ -1,0 +1,67 @@
+---
+import Blurgradientleft from "../components/Blurgradientleft.astro";
+import Verticalgrid from "../components/Verticalgrid.astro";
+---
+
+<section class="relative">
+  <Verticalgrid />
+  <section>
+    <Blurgradientleft />
+    <div
+      class="relative items-center w-full px-5 py-24 mx-auto md:px-12 lg:px-16 max-w-7xl lg:pb-32 lg:pt-56"
+    >
+      <div class="max-w-5xl mx-auto">
+        <p
+          class="text-sm text-transparent uppercase bg-gradient-to-r from-emerald-500 from-0% to-40% to-emerald-900 bg-clip-text"
+        >
+          HOSTING PARA EMPRESAS
+        </p>
+        <h1
+          class="mt-8 text-4xl font-normal tracking-tighter text-white sm:text-5xl"
+        >
+          Hosting Web Profesional
+        </h1>
+        <p class="max-w-2xl mt-4 text-gray-400">
+          La mejor opción para el desarrollo de tu negocio en Internet.
+          Ofrecemos servicios de alojamiento web profesionales, con un enfoque
+          en la seguridad, la estabilidad y la rapidez.
+        </p>
+        <div class="flex flex-wrap items-center gap-2 mt-10">
+          <a
+            href="https://maurel.cl/store/hosting-directadmin"
+            class="flex items-center justify-center h-10 px-4 py-2 text-sm transition-all rounded-lg text-emerald-400 hover:text-emerald-950 bg-emerald-950 hover:bg-emerald-400"
+            title="Conoce nuestros Planes de Hosting Web Profesional"
+            aria-label="Ver planes de hosting">Ver Planes</a
+          >
+          <a
+            href="https://maurel.cl/clientarea.php"
+            class="flex items-center justify-center h-10 px-4 py-2 text-sm text-white transition-all border rounded-lg hover:text-emerald-400 border-emerald-700 hover:bg-emerald-950 hover:border-emerald-950"
+            title="Area de Clientes"
+            aria-label="Ingresar a mi cuenta de cliente"
+            >Mi Cuenta
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="size-6"
+              viewBox="0 0 24 24"
+              ><path
+                fill="currentColor"
+                d="M17.073 12.5H5.5q-.213 0-.357-.143T5 12t.143-.357t.357-.143h11.573l-3.735-3.734q-.146-.147-.152-.345t.152-.363q.166-.166.357-.168t.357.162l4.383 4.383q.13.13.183.267t.053.298t-.053.298t-.183.268l-4.383 4.382q-.146.146-.347.153t-.367-.159q-.16-.165-.162-.354t.162-.354z"
+              ></path></svg
+            >
+          </a>
+        </div>
+      </div>
+      <div
+        class="relative items-center w-full mx-auto mt-12 max-w-7xl lg:p-4 lg:rounded-5xl lg:border border-emerald-800"
+        style=""
+      >
+        <img
+          class="object-cover w-full border shadow-2xl rounded-xl border-white/5 lg:rounded-3xl shadow-emerald-950"
+          src="./assets/panel-hosting.webp"
+          alt="Hosting Web Profesional"
+          aria-label="Hosting Web Profesional"
+        />
+      </div>
+    </div>
+  </section>
+</section>
